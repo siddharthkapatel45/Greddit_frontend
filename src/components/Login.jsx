@@ -5,7 +5,7 @@ import Navbar_OG from "./components/Navbar_OG";
 import Profile from './components/Profile';
 import Create from './components/Create';
 import Home from "./components/Home";
-import Login from './components/Login";
+import Login from './components/Login';
 import Signup from './components/Signup';
 import EditProfile from './components/Edit_Profile';
 import CreateCommunity from './components/CreateCommunity';
