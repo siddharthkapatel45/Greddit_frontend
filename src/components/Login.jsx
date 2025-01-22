@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
+
 import { useToast } from "@/components/hooks/use-toast"
 import { Button } from "@/components/ui/button"
 export default function Login() {
@@ -10,6 +11,18 @@ export default function Login() {
   const { toast } = useToast();
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+import Navbar_OG from "./components/Navbar_OG";
+import Profile from './components/Profile';
+import Create from './components/Create';
+import Home from "./components/Home";
+import Login from './components/Login";
+import Signup from './components/Signup';
+import EditProfile from './components/Edit_Profile';
+import CreateCommunity from './components/CreateCommunity';
+import CommunityMembers from './components/CommunityMembers';
+import Accept from './components/Accept';
+>>>>>>> parent of a24d957 (Update Login.jsx)
 
     try {
       const response = await fetch("http://localhost:5000/login", {
