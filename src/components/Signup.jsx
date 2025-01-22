@@ -51,7 +51,7 @@ export default function Signup() {
         setEmailError("");
         setUsernameError("");
         // Redirect to login page
-        navigate("/login");
+        navigate("/");
       } else {
         // Generic error
         alert("Something went wrong. Please try again.");
