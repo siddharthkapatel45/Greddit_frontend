@@ -52,7 +52,7 @@ export default function Create() {
 
       if (response.ok) {
         alert("Post created successfully!");
-        navigate('/'); // Redirect to homepage or another route
+        navigate('/home'); // Redirect to homepage or another route
       } else {
         alert("Error creating post");
       }
