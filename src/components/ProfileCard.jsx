@@ -17,7 +17,7 @@ const ProfileCard = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/profile', {
+        const response = await fetch('https://reddit-project-1.onrender.com/profile', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,

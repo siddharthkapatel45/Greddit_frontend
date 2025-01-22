@@ -20,7 +20,7 @@ export default function CommunityMembers() {
     const fetchCommunityData = async () => {
       try {
         const communityResponse = await fetch(
-          "http://localhost:5000/createcomm/getbyid",
+          "https://reddit-project-1.onrender.com/createcomm/getbyid",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -38,7 +38,7 @@ export default function CommunityMembers() {
         const membersWithProfiles = await Promise.all(
           communityData.members.map(async (username) => {
             const profileResponse = await fetch(
-              "http://localhost:5000/profile/getPersonByUsername",
+              "https://reddit-project-1.onrender.com/profile/getPersonByUsername",
               {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -65,7 +65,7 @@ export default function CommunityMembers() {
         setMembers(membersWithProfiles);
 
         // Fetch community stats (contributors and trending topics)
-        const statsResponse = await fetch("http://localhost:5000/createcomm/getStats", {
+        const statsResponse = await fetch("https://reddit-project-1.onrender.com/createcomm/getStats", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ community_id: communityId }),
@@ -92,7 +92,7 @@ export default function CommunityMembers() {
 
   const handleFollow = async (username) => {
     try {
-      const response = await fetch("http://localhost:5000/follow", {
+      const response = await fetch("https://reddit-project-1.onrender.com/follow", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

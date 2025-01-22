@@ -18,7 +18,7 @@ export default function Navbar_OG() {
     if (!token) return;
 
     try {
-      const response = await fetch("http://localhost:5000/profile/getimg", {
+      const response = await fetch("https://reddit-project-1.onrender.com/profile/getimg", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ export default function Navbar_OG() {
   // Fetch communities for search
   const fetchCommunities = async () => {
     try {
-      const response = await fetch("http://localhost:5000/createcomm/search");
+      const response = await fetch("https://reddit-project-1.onrender.com/createcomm/search");
       const data = await response.json();
       setAllCommunities(data);
     } catch (error) {
@@ -69,7 +69,7 @@ export default function Navbar_OG() {
   return (
     <nav className="bg-gray-100 bg-opacity-30 backdrop-blur-md fixed w-full z-20 top-0 shadow-md">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 sm:p-3">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="/home" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img
             src="https://res.cloudinary.com/dvy7hrlmp/image/upload/v1737393818/95f9d0a5599547818889f14c1b884ee0-free_zzpwla.png"
             className="h-16 w-auto p-2 rounded"

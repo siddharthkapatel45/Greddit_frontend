@@ -17,7 +17,7 @@ export default function Post() {
           return;
         }
 
-        const response = await fetch('http://localhost:5000/createpost/getpost', {
+        const response = await fetch('https://reddit-project-1.onrender.com/createpost/getpost', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

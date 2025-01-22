@@ -17,7 +17,7 @@ const MyCommunities = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/createcomm/mycommunities', {
+        const response = await fetch('https://reddit-project-1.onrender.com/createcomm/mycommunities', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,

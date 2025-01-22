@@ -47,7 +47,7 @@ const EditProfile = () => {
     if (formData.photo) formDataToSend.append("photo", formData.photo);
 
     try {
-      const response = await fetch("http://localhost:5000/profile/edit", {
+      const response = await fetch("https://reddit-project-1.onrender.com/profile/edit", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

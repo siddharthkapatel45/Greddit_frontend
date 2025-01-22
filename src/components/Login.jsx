@@ -1,31 +1,21 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useToast } from "@/components/hooks/use-toast";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-import { useToast } from "@/components/hooks/use-toast"
-import { Button } from "@/components/ui/button"
 export default function Login() {
   // State to manage form data and error messages
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { toast } = useToast();
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-import Navbar_OG from "./components/Navbar_OG";
-import Profile from './components/Profile';
-import Create from './components/Create';
-import Home from "./components/Home";
-import Login from './components/Login";
-import Signup from './components/Signup';
-import EditProfile from './components/Edit_Profile';
-import CreateCommunity from './components/CreateCommunity';
-import CommunityMembers from './components/CommunityMembers';
-import Accept from './components/Accept';
->>>>>>> parent of a24d957 (Update Login.jsx)
-
     try {
-      const response = await fetch("http://localhost:5000/login", {
+      const response = await fetch("https://reddit-project-1.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,23 +32,20 @@ import Accept from './components/Accept';
         // Store token in a cookie
         Cookies.set("authToken", data.token, { expires: 100 });
 
-        
-        // console.log(Cookies.get("authToken"));
-        // console.log("siddharth");
-
-        // Redirect or notify the user of successful login
+        // Notify the user of successful login
         toast({
           description: data.message,
-        })
-        window.location.href = "/"; // Redirect to the home page or another route
-      }
-      else if(response.status===401) alert("Username/Password incorrect"); 
-      else {
+        });
+
+        // Redirect to the home page
+        navigate("/home"); // Use navigate to go to the home page
+      } else if (response.status === 401) {
+        alert("Username/Password incorrect");
+      } else {
         // Handle failed login (e.g., show an error message)
         setErrorMessage(data.message || "Login failed");
       }
-    }
-     catch (error) {
+    } catch (error) {
       // Handle network or other errors
       console.error("Error during login:", error);
       setErrorMessage("Username or password is incorrect. Please try again.");
@@ -69,7 +56,7 @@ import Accept from './components/Accept';
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-          Sign in to your account now
+          Sign in to your account
         </h2>
       </div>
 
@@ -133,7 +120,7 @@ import Accept from './components/Accept';
           {/* Signup Link */}
           <div className="text-sm">
             <a href="/signup" className="font-semibold text-indigo-600 hover:text-indigo-500">
-              
+              Don't have an account? Sign up
             </a>
           </div>
         </form>
